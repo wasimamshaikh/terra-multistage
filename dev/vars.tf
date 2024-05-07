@@ -113,3 +113,23 @@ variable "DEV_Instance_TAG" {
     "Name" = "dev-instance"
   }
 }
+
+variable USER {
+  default = "ec2-user"
+}
+
+variable "sourcefile" {
+  default = "../dev/web1.sh"
+}
+
+variable "destfile" {
+  default = "/tmp/web1.sh"
+}
+
+variable "chmodfile" {
+  default = "chmod +x /tmp/web1.sh"
+}
+
+variable "runfile" {
+  default = "sudo /tmp/web1.sh"
+}

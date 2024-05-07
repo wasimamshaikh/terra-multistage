@@ -34,9 +34,33 @@ variable "sec_grp_id" {
   type = string
 }
 
+variable "sourcefile" {
+  type = string
+}
+
+variable "destfile" {
+  type = string
+}
+
+variable "chmodfile" {
+  type = string
+}
+
+variable "runfile" {
+  type = string
+}
+
+variable "DEV_PRI_KEY" {
+  type = string
+}
+
 variable "Instance_TAG" {
   type = map(any)
   default = {
     "Name" = "web-instance"
   }
+}
+
+variable USER {
+  default = "ec2-user"
 }

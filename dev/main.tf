@@ -50,4 +50,9 @@ module "instance" {
   subnet1_id    = module.subnet.subnet1_id
   sec_grp_id    = module.secgrp.sec_grp_id
   Instance_TAG  = var.DEV_Instance_TAG
+  sourcefile    = var.sourcefile
+  destfile      = var.destfile
+  DEV_PRI_KEY   = var.DEV_PRI_KEY
+  chmodfile     = var.chmodfile
+  runfile       = var.runfile
 }

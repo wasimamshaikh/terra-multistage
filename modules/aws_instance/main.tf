@@ -11,8 +11,24 @@ resource "aws_instance" "web-instance" {
   vpc_security_group_ids = [var.sec_grp_id]
   tags = var.Instance_TAG
 
-}
+  connection {
+  type        = "ssh"
+  user        = var.USER
+  private_key = file(var.DEV_PRI_KEY)
+  host        = self.public_ip
+  }
 
-output "PublicIP" {
-  value = aws_instance.web-instance.public_ip
+  provisioner "file" {
+    source      = var.sourcefile
+    destination = var.destfile
+  }
+
+  provisioner "remote-exec" {
+
+    inline = [
+      var.chmodfile,
+      var.runfile
+    ]
+  }
+
 }
