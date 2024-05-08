@@ -1,0 +1,24 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/main']], extensions: [cloneOption(noTags: false, reference: '\'dev\'', shallow: false)], userRemoteConfigs: [[url: 'https://github.com/wasimamshaikh/terra-multistage.git']])
+            }
+        }
+
+        stage('Terraform init') {
+            steps {
+                sh ('terraform init')
+            }
+        }
+
+        stage ("terraform Action") {
+            steps {
+                echo "Terraform action is --> ${action}"
+                sh ('terraform ${action} --auto-approve')
+           }
+        }
+    }
+}
