@@ -113,3 +113,23 @@ variable "Instance_TAG" {
     "Name" = "prod-instance"
   }
 }
+
+variable USER {
+  default = "ec2-user"
+}
+
+variable "sourcefile" {
+  default = "../prod/nginx.sh"
+}
+
+variable "destfile" {
+  default = "/tmp/nginx.sh"
+}
+
+variable "chmodfile" {
+  default = "chmod +x /tmp/nginx.sh"
+}
+
+variable "runfile" {
+  default = "sudo /tmp/nginx.sh"
+}
