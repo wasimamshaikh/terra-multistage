@@ -1,24 +1,23 @@
 pipeline {
     agent any
 
+    environment {
+        AWS_DEFAULT_REGION = 'us-east-2' // Change to your desired region
+    }
+
     stages {
         stage('Checkout') {
             steps {
-                checkout scmGit(branches: [[name: '*/main']], extensions: [cloneOption(noTags: false, reference: '\'dev\'', shallow: false)], userRemoteConfigs: [[url: 'https://github.com/wasimamshaikh/terra-multistage.git']])
+                git branch: 'dev', url: 'https://github.com/wasimamshaikh/terra-multistage.git'
             }
         }
 
-        stage('Terraform init') {
+        stage('Terraform Init') {
             steps {
-                sh ('terraform init')
+                dir('dev') {
+                    sh 'terraform init'
+                }
             }
-        }
-
-        stage ("terraform Action") {
-            steps {
-                echo "Terraform action is --> ${action}"
-                sh ('terraform ${action} --auto-approve')
-           }
         }
     }
 }
