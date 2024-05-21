@@ -1,15 +1,13 @@
 variable "REGION" {
-  default = "us-east-2"
 }
 
 variable "VPC_CIDR" {
-  default = "10.0.0.0/16"
 }
 
 variable "VPC_TAG" {
   type = map(any)
   default = {
-    "Name" = "prod-vpc"
+    "Name" = "web-vpc"
   }
 }
 
@@ -22,64 +20,60 @@ variable "ZONE2" {
 }
 
 variable "PUB_SUB_CIDR1" {
-  default = "10.0.1.0/24"
 }
 
 variable "PUB_SUB_CIDR2" {
-  default = "10.0.2.0/24"
 }
 
 variable "PRI_SUB_CIDR1" {
-  default = "10.0.3.0/24"
 }
 
 variable "PRI_SUB_CIDR2" {
-  default = "10.0.4.0/24"
 }
 
 variable "SUB_VPC_PUB_TAG" {
   type = map(any)
   default = {
-    "Name" = "prod-sub-pub-1"
+    "Name" = "web-sub-pub-1"
   }
 }
 
 variable "SUB_VPC_PUB2_TAG" {
   type = map(any)
   default = {
-    "Name" = "prod-sub-pub-2"
+    "Name" = "web-sub-pub-2"
   }
 }
 
 variable "SUB_VPC_PRI1_TAG" {
   type = map(any)
   default = {
-    "Name" = "prod-sub-pri-1"
+    "Name" = "web-sub-pri-1"
   }
 }
 
 variable "SUB_VPC_PRI2_TAG" {
   type = map(any)
   default = {
-    "Name" = "prod-sub-pri-2"
+    "Name" = "web-sub-pri-2"
   }
 }
 
 variable "IGW" {
   type = map(any)
   default = {
-    "Name" = "prod-igw"
+    "Name" = "web-igw"
   }
 }
 
 variable "MYIP" {
-  default = "103.170.216.70/32"
+  default = "103.170.216.114/32"
 }
 
 variable "SEC_GRP_TAG" {
   type = map(any)
   default = {
-    "Name" = "prod-sg"
+    "Name" = "web-sg"
   }
 }
 
@@ -92,44 +86,30 @@ variable "AMIS" {
 }
 
 variable "INSTANCE_TYPE" {
-  default = "t2.micro"
 }
 
 variable "PUB_KEY" {
-  default = "prodkey.pub"
+  default = "webkey.pub"
 }
 
 variable "PRI_KEY" {
-  default = "prodkey"
+  default = "webkey"
 }
 
-variable "DEV_KEY" {
-  default = "prodkey"
-}
-
-variable "Instance_TAG" {
-  type = map(any)
-  default = {
-    "Name" = "prod-instance"
-  }
+variable "Environment" {
 }
 
 variable USER {
-  default = "ec2-user"
 }
 
 variable "sourcefile" {
-  default = "../prod/nginx.sh"
 }
 
 variable "destfile" {
-  default = "/tmp/nginx.sh"
 }
 
 variable "chmodfile" {
-  default = "chmod +x /tmp/nginx.sh"
 }
 
 variable "runfile" {
-  default = "sudo /tmp/nginx.sh"
 }

@@ -1,5 +1,5 @@
 resource "aws_key_pair" "web-key" {
-  key_name   = var.DEV_KEY
+  key_name   = var.PRI_KEY
   public_key = file(var.PUB_KEY)
 }
 
@@ -9,12 +9,15 @@ resource "aws_instance" "web-instance" {
   subnet_id              = var.subnet1_id
   key_name               = aws_key_pair.web-key.key_name
   vpc_security_group_ids = [var.sec_grp_id]
-  tags = var.Instance_TAG
+  tags = {
+    Name        = "Instance"
+    Environment = var.Environment
+  }
 
   connection {
   type        = "ssh"
   user        = var.USER
-  private_key = file(var.DEV_PRI_KEY)
+  private_key = file(var.PRI_KEY)
   host        = self.public_ip
   }
 

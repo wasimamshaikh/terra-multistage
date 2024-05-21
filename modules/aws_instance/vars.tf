@@ -22,10 +22,6 @@ variable "PRI_KEY" {
   default = "webkey"
 }
 
-variable "DEV_KEY" {
-  type = string
-}
-
 variable "subnet1_id" {
   type = string
 }
@@ -50,15 +46,8 @@ variable "runfile" {
   type = string
 }
 
-variable "DEV_PRI_KEY" {
+variable "Environment" {
   type = string
-}
-
-variable "Instance_TAG" {
-  type = map(any)
-  default = {
-    "Name" = "web-instance"
-  }
 }
 
 variable USER {

@@ -3,7 +3,7 @@ variable "vpc_id" {
 }
 
 variable "MYIP" {
-  default = "103.170.216.70/32"
+  default = "103.170.216.114/32"
 }
 
 variable "SEC_GRP_TAG" {

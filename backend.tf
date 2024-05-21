@@ -1,7 +1,6 @@
 terraform {
   backend "s3" {
-    bucket = "web-terra-jen2"
-    key    = "terraform/dev"
+    key    = "terraform/state"
     region = "us-east-2"
   }
 }
