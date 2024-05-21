@@ -10,7 +10,7 @@ resource "aws_instance" "web-instance" {
   key_name               = aws_key_pair.web-key.key_name
   vpc_security_group_ids = [var.sec_grp_id]
   tags = {
-    Name        = "Instance"
+    Name        = "Web Instance"
     Environment = var.Environment
   }
 
