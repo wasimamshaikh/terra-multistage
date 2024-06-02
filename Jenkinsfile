@@ -6,15 +6,15 @@ pipeline {
         TERRAFORM_VERSION = 'v1.8.4'
     }
 
-    parameters {
-        choice(name: 'ENVIRONMENT', choices: ['dev', 'prod'], description: 'Choose the environment to deploy')
-    }
+//    parameters {
+//        choice(name: 'ENVIRONMENT', choices: ['dev', 'prod'], description: 'Choose the environment to deploy')
+//    }
 
     stages {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-                git 'https://github.com/wasimamshaikh/terra-multistage.git'
+                git url: 'https://github.com/wasimamshaikh/terra-multistage.git'
             }
         }
 
