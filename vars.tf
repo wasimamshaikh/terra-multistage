@@ -67,7 +67,7 @@ variable "IGW" {
 }
 
 variable "MYIP" {
-  default = "103.170.216.114/32"
+  default = "103.170.216.101/32"
 }
 
 variable "SEC_GRP_TAG" {
@@ -83,6 +83,11 @@ variable "AMIS" {
     us-east-2 = "ami-0ddda618e961f2270"
     us-east-1 = "ami-07caf09b362be10b8"
   }
+}
+
+variable "key_pair_name" {
+  description = "The key pair name for the environment"
+  type        = string
 }
 
 variable "INSTANCE_TYPE" {

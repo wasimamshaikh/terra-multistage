@@ -10,6 +10,11 @@ variable "AMIS" {
   }
 }
 
+variable "key_pair_name" {
+  description = "The key pair name to use for the instance"
+  type        = string
+}
+
 variable "INSTANCE_TYPE" {
   default = "t2.micro"
 }

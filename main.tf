@@ -42,8 +42,8 @@ module "RouteTable" {
 
 module "instance" {
   source        = "./modules/aws_instance"
-  PRI_KEY       = var.PRI_KEY
-  PUB_KEY       = var.PUB_KEY
+#  PRI_KEY       = var.PRI_KEY
+#  PUB_KEY       = var.PUB_KEY
   AMIS          = var.AMIS
   REGION        = var.REGION
   INSTANCE_TYPE = var.INSTANCE_TYPE
@@ -54,4 +54,5 @@ module "instance" {
   destfile      = var.destfile
   chmodfile     = var.chmodfile
   runfile       = var.runfile
+  key_pair_name = var.key_pair_name
 }
