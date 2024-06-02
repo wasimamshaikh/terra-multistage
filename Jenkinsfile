@@ -17,6 +17,8 @@ pipeline {
                 git url: 'https://github.com/wasimamshaikh/terra-multistage.git'
             }
         }
+    }
+}
 
 /*        stage('Setup Terraform') {
             steps {
@@ -55,4 +57,3 @@ pipeline {
             }
         }
     } /*
-}
