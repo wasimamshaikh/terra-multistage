@@ -27,6 +27,8 @@ pipeline {
                     sh 'terraform init --backend-config=/env/${params.ENVIRONMENT}/backend.conf'
               }
         }
+    }
+}
 
    /*     stage('Plan') {
             steps {
@@ -44,5 +46,4 @@ pipeline {
                 }
             }
         } /*
-    }
-}
+
