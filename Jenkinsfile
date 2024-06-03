@@ -1,10 +1,10 @@
 pipeline {
     agent any
 
-    environment {
+ //   environment {
         // Define Terraform version to use
-        TERRAFORM_VERSION = 'v1.8.4'
-    }
+ //       TERRAFORM_VERSION = 'v1.8.4'
+ //   }
 
 //    parameters {
 //        choice(name: 'ENVIRONMENT', choices: ['dev', 'prod'], description: 'Choose the environment to deploy')
