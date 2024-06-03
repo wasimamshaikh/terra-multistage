@@ -24,7 +24,7 @@ pipeline {
 
         stage('Initialize') {
             steps {
-                    sh 'terraform init --backend-config=/env/${params.ENVIRONMENT}/backend.conf'
+                    sh 'terraform init -backend-config=/env/${params.ENVIRONMENT}/backend.conf'
               }
         }
     }
