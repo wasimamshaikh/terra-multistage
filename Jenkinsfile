@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    tools {
+            git 'Default' // Specify the Git installation name
+        }
+
  //   environment {
         // Define Terraform version to use
  //       TERRAFORM_VERSION = 'v1.8.4'
