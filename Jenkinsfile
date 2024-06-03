@@ -25,7 +25,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 dir("env/${params.ENVIRONMENT}") {
-                    sh 'terraform init -backend-config=backend.conf'
+                    sh 'terraform init --backend-config=backend.conf'
                 }
             }
         }
@@ -33,7 +33,7 @@ pipeline {
         stage('Plan') {
             steps {
                 dir("env/${params.ENVIRONMENT}") {
-                    sh 'terraform plan -var-file=variables.tfvars'
+                    sh 'terraform plan --var-file=variables.tfvars'
                 }
             }
         }
@@ -42,7 +42,7 @@ pipeline {
             steps {
                 dir("env/${params.ENVIRONMENT}") {
                     input message: "Approve the plan for ${params.ENVIRONMENT} environment?", ok: "Apply"
-                    sh 'terraform apply -var-file=variables.tfvars -auto-approve'
+                    sh 'terraform apply --var-file=variables.tfvars --auto-approve'
                 }
             }
         }
