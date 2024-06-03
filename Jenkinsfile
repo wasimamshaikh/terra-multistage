@@ -5,14 +5,14 @@ pipeline {
             git 'Default' // Specify the Git installation name
         }
 
- //   environment {
+    environment {
         // Define Terraform version to use
- //       TERRAFORM_VERSION = 'v1.8.4'
- //   }
+        TERRAFORM_VERSION = 'v1.8.4'
+        }
 
-//    parameters {
-//        choice(name: 'ENVIRONMENT', choices: ['dev', 'prod'], description: 'Choose the environment to deploy')
-//    }
+    parameters {
+        choice(name: 'ENVIRONMENT', choices: ['dev', 'prod'], description: 'Choose the environment to deploy')
+    }
 
     stages {
         stage('Checkout') {
@@ -21,32 +21,18 @@ pipeline {
                 checkout scm
             }
         }
-    }
-}
-
-/*        stage('Setup Terraform') {
-            steps {
-                // Install Terraform
-                sh '''
-                wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-                unzip terraform_${TERRAFORM_VERSION}_linux_amd64.zip
-                sudo mv terraform /usr/local/bin/
-                terraform --version
-                '''
-            }
-        }
 
         stage('Initialize') {
             steps {
-                dir("environments/${params.ENVIRONMENT}") {
-                    sh 'terraform init -backend-config=backend.config'
+                dir("env/${params.ENVIRONMENT}") {
+                    sh 'terraform init -backend-config=backend.conf'
                 }
             }
         }
 
         stage('Plan') {
             steps {
-                dir("environments/${params.ENVIRONMENT}") {
+                dir("env/${params.ENVIRONMENT}") {
                     sh 'terraform plan -var-file=variables.tfvars'
                 }
             }
@@ -54,11 +40,11 @@ pipeline {
 
         stage('Apply') {
             steps {
-                dir("environments/${params.ENVIRONMENT}") {
+                dir("env/${params.ENVIRONMENT}") {
                     input message: "Approve the plan for ${params.ENVIRONMENT} environment?", ok: "Apply"
                     sh 'terraform apply -var-file=variables.tfvars -auto-approve'
                 }
             }
         }
     }
-*/
+}
