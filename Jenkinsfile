@@ -18,7 +18,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from the repository
-                git 'git@github.com:wasimamshaikh/terra-multistage.git'
+                git 'https://github.com/wasimamshaikh/terra-multistage.git'
             }
         }
     }
