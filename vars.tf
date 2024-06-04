@@ -67,7 +67,7 @@ variable "IGW" {
 }
 
 variable "MYIP" {
-  default = "103.170.216.101/32"
+  default = "103.170.216.95/32"
 }
 
 variable "SEC_GRP_TAG" {
