@@ -25,5 +25,11 @@ pipeline {
                 sh "terraform init --backend-config=env/${params.ENVIRONMENT}/backend.conf"
             }
         }
+
+        stage('Plan') {
+            steps {
+                sh "terraform plan --var-file=env/${params.ENVIRONMENT}/variables.tfvars"
+            }
+        }
     }
 }
