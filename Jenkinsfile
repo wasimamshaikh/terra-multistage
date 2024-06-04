@@ -19,5 +19,14 @@ pipeline {
                 checkout scm
             }
         }
+
+        stage('Initialize') {
+            steps {
+                script {
+                    dir("env/${params.ENVIRONMENT}")
+                    sh "terraform init --backend-config=backend.conf"
+                }
+            }
+        }
     }
 }
