@@ -22,10 +22,8 @@ pipeline {
 
         stage('Initialize') {
             steps {
-                script {
-                    dir("env/${params.ENVIRONMENT}")
-                    sh "terraform init --backend-config=backend.conf"
-                }
+                dir("env/${params.ENVIRONMENT}")
+                sh "terraform init --backend-config=backend.conf"
             }
         }
     }
